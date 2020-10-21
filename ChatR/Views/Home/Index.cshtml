@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .cuadroemojioc {
+        /*padding: 0px;
+        border: 1px solid gray;
+        visibility: hidden;
+        position: absolute;*/
+        display: none;
+    }
+    .emojivis {
+        border: 1px solid gray;
+        display: flex;
+        flex-flow: row wrap;
+        overflow: auto;
+        height: 160px;
+    }
+    .emojivis p {
+        font-size: 18px;
+    }
+    .cuadroemoji {
+        margin-top:4px;
+        border: silver solid 1px;
+        height: 200px;
+          
+    }
+
+    .cuadroemoji footer {
+        background-color: silver;
+        border: lightblue solid 1px;
+        display: flex;
+        flex-flow: row;
+        justify-content: flex-end;
+    }
+    .cuadroemoji footer input {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .mensaje {
+        display: flex;
+        column-gap: 6px;
+    }
+
+    .mensajetxt {
+        display: inline;
+        flex: 10;
+        border:black 1px solid;
+    }
+
+    .mensajeico {
+        display: inline;
+        flex: 1;
+        min-width: 24px;
+        max-width: 24px;
+    }
+
+    .mensajeico:hover {
+        border: solid gray 1px;
+        border-radius: 8px;
+    }
+
+    .mensajebot {
+        flex: 1;
+        
+    }
+
+    .listamensajes {
+        margin-top: 8px;
+        border: solid 1px silver;
+        border-radius: 6px;
+        list-style: none;
+        padding: 2px;
+    }
+
+</style>
+<div class="container-fluid" style="padding:0px">
+
+    <div class="row">
+        <div class="col-2">
+            Nombre:
+        </div>
+        <div class="col-10">
+            <input type="text" value="" id="txtUser" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            Mensaje:
+        </div>
+        <div class="col-10" >
+            <div class="mensaje">                
+                <div contenteditable="true" id="txtMensaje" class="mensajetxt" tabindex = "0" >
+
+                </div>
+                <img    class="mensajeico" src="~/emoji.ico" id="mostrarEmoji" />
+                <input  class="mensajebot btn btn-sm btn-primary" type="button" value=">" id="btnEnviar" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            
+        </div>
+        <div class="col-10">
+            <div id="cuadroemoji" class="cuadroemojioc">
+                <div id="divEmoji" class="emojivis">
+
+                </div>
+                <footer>
+                    <input type="button" value="<" id="btnPrev" />
+                    <input type="button" value=">" id="btnNext" />
+                </footer>
+            </div>
+        </div>
+
+    </div>
+    <hr />
+    <ul id="listaMensajes" class="listamensajes"></ul>
+    <input type="text" id="txtEstado" name="name" value="" style="display:none" />
+</div>
+<script src="~/lib/@@aspnet/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/emojiCod.js"></script>
+<script src="~/js/chat.js"></script>
+
+
+
+
